@@ -1,6 +1,7 @@
 #include <pthread.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "rtclock.h"
 
 int x = 0;
 pthread_spinlock_t *lock;
