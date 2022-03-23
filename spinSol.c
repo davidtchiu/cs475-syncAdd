@@ -11,7 +11,7 @@ int main()
 {
   // initialize the lock
   lock = (pthread_spinlock_t *)malloc(sizeof(pthread_spinlock_t));
-  pthread_spinlock_init(lock, NULL);
+  pthread_spin_init(lock, NULL);
 
   pthread_t t1, t2;
   pthread_create(&t1, NULL, doStuff, NULL);
@@ -19,7 +19,7 @@ int main()
   pthread_join(t1, NULL);
   pthread_join(t2, NULL);
   printf("Value of x is %d\n", x);
-  pthread_spinlock_destroy(lock);
+  pthread_spin_destroy(lock);
   return 0;
 }
 
