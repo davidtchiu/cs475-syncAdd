@@ -9,6 +9,8 @@ void *doStuff(void *);
 
 int main()
 {
+  double start = rtclock(); // start stopwatch
+
   // initialize the lock
   lock = (pthread_spinlock_t *)malloc(sizeof(pthread_spinlock_t));
   pthread_spin_init(lock, PTHREAD_PROCESS_SHARED);
@@ -20,6 +22,10 @@ int main()
   pthread_join(t2, NULL);
   printf("Value of x is %d\n", x);
   pthread_spin_destroy(lock);
+
+  double end = rtclock(); // end stopwatch
+
+  printf("Time: %.6f sec\n", ((end - start)));
   return 0;
 }
 
