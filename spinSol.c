@@ -11,7 +11,7 @@ int main()
 {
   // initialize the lock
   lock = (pthread_spinlock_t *)malloc(sizeof(pthread_spinlock_t));
-  pthread_spin_init(lock, NULL);
+  pthread_spin_init(lock, PTHREAD_PROCESS_SHARED);
 
   pthread_t t1, t2;
   pthread_create(&t1, NULL, doStuff, NULL);
